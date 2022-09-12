@@ -4,7 +4,22 @@ This repo contains the code for our paper [Cold-Start Data Selection for Few-sho
 ## Model Framework
 ![Figure](Figure/PATRON.png)
 
+## Performance
+The results on different datasets (using 128 labels as the budget) for fine-tuning are summarized as follows:
 
+| Method |  IMDB | Yelp-full | AGNews | Yahoo! | DBPedia | TREC | Mean|
+| ------ | ------- | ----- | ----------- | ------- | -------- | --------| ------- | 
+| Full Supervision (Roberta-base)  | 94.1 | 66.4 | 94.0 | 77.6 | 99.3 | 97.2 | 88.1 
+| Best Baseline [(Chang et al. 2021)](https://aclanthology.org/2021.acl-short.2/) | 88.5 | 46.4 | 85.6 | 61.3 | 96.5 | 87.7 | 77.6
+| Patron (Ours) | 89.6 | 51.2 | 87.0 | 65.1 | 97.0 | 91.1 | 80.2 
+
+
+For prompt-based learning, we use the same pipeline as the [LM-BFF](https://aclanthology.org/2021.acl-long.295/). The result with 128 labels is shown as follows.
+| Method |  IMDB | Yelp-full | AGNews | Yahoo! | DBPedia | TREC | Mean|
+| ------ | ------- | ----- | ----------- | ------- | -------- | --------| ------- | 
+| Full Supervision (Roberta-base)  | 94.1 | 66.4 | 94.0 | 77.6 | 99.3 | 97.2 | 88.1 
+| Best Baseline [(Yuan et al., 2020)](https://aclanthology.org/2020.emnlp-main.637/) | 88.9 | 51.7 | 87.5 | 65.9 | 96.8 | 86.5 | 79.5
+| Patron (Ours) | 89.3 | 55.6 | 87.8 | 67.6 | 97.4 | 88.9 | 81.1 
 
 ## Dependencies
 ```
@@ -18,7 +33,7 @@ sentencepiece==0.1.96
 tqdm>=4.62.2
 tensorboardX
 nltk
-pip install openprompt
+openprompt
 ```
 
 ## Datasets

@@ -149,8 +149,6 @@ def fit(args, model, train_dataloader, val_dataloader, loss_func, optimizer):
             optimizer.zero_grad()
             if step in [0, training_len//4, training_len//2, 3*training_len//4]:
                 dev_score, dev_f1 = evaluate(model, val_dataloader)
-        # dev_score = evaluate(model, val_dataloader)
-        # test_score = evaluate(model, test_dataloader)
                 print(f"epoch = {epoch}, step = {step}, dev acc = {dev_score}, dev f1 = {dev_f1}")
                 if dev_score > best_score:
                     best_score = dev_score
@@ -170,8 +168,6 @@ def train_epoch(model, train_dataloader, loss_func, optimizer):
         loss.backward()
         optimizer.step()
         optimizer.zero_grad()
-        # if step in [training_len//4, training_len//2, 3*training_len//4]:
-            # dev_score = evaluate(model, val_dataloader)
 
 
 def evaluate(model, val_dataloader):

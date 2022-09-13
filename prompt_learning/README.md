@@ -27,7 +27,7 @@ Run the following commands `commands/run.sh` for fine-tuning the PLM with the se
 _Note_: the relevant configurations for prompts (e.g. verbalizers, templates) are in `utils.py`. 
 
 ## Hyperparameters
-Note: the three numbers in each grid indicates the parameter for 32/64/128 labels.
+Note: the three numbers in each grid indicate the parameter for 32/64/128 labels.
 
 |  | IMDB | Yelp-full | AG News | Yahoo! | DBPedia | TREC |
 | ------ | ------ | ------ | ------ | ------ | ------  |------  |

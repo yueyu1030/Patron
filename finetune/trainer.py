@@ -23,15 +23,6 @@ from collections import Counter
 
 logger = logging.getLogger(__name__)
 
-def set_seed(args):
-    random.seed(args.seed)
-    np.random.seed(args.seed)
-    torch.manual_seed(args.seed)
-    if args.n_gpu > 0  and torch.cuda.is_available():
-        torch.cuda.manual_seed_all(args.seed)
-        torch.cuda.manual_seed(args.seed)
-    torch.backends.cudnn.deterministic = True
-    torch.backends.cudnn.benchmark = False
 
 def compute_metrics(preds, labels):
     assert len(preds) == len(labels)
@@ -130,7 +121,6 @@ class Trainer(object):
         self.model.zero_grad()
 
         train_iterator = trange(int(self.args.num_train_epochs), desc="Epoch")
-        set_seed(self.args)
         best_dev = -np.float('inf')
         for _ in train_iterator:
             epoch_iterator = tqdm(train_dataloader, desc="Iteration")
@@ -163,7 +153,7 @@ class Trainer(object):
                     self.model.zero_grad()
                     global_step += 1
                     epoch_iterator.set_description("iteration:%d, Loss:%.3f, best dev:%.3f" % (_, tr_loss/global_step, 100*best_dev))
-                    if self.args.logging_steps > 0 and local_step in [training_len//2]: 
+                    if local_step in [training_len//2]: 
                         loss_dev, acc_dev, f1_dev = self.evaluate('dev', global_step)
                         if acc_dev > best_dev:
                             logger.info("Best model updated!")

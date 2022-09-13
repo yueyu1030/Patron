@@ -38,25 +38,11 @@ def main(args):
             contra_datasets.append(dataset)
         print(len(contra_datasets))
 
-
     print('number of labels:', num_labels)
     print('train_size:', train_size)
     print('dev_size:', dev_size)
     print('test_size:', test_size)
-    print('unlabel_size:', unlabeled_size)
-
-    if args.sample_labels == -1:
-        sub_unlabeled = unlabeled_dataset
-        dev_dataset = test_dataset
-    else:
-        with open(f"../datasets/{args.task}-0-0/train_idx_roberta-base_{args.al_method}_{args.sample_labels}.json", 'r') as f:
-            indexes = json.load(f)
-            print("number of labeled data:", len(indexes))
-            # exit()
-            sub_unlabeled = Subset(unlabeled_dataset, indexes)
-          
-    train_dataset = sub_unlabeled
-    print(args.al_method, len(train_dataset))
+    print('unlabel_size:', unlabeled_size)          
 
     trainer = Trainer(args, train_dataset=train_dataset, dev_dataset=dev_dataset,test_dataset=test_dataset, contra_datasets = contra_datasets, \
             unlabeled = unlabeled_dataset, \
@@ -94,8 +80,6 @@ if __name__ == '__main__':
     parser.add_argument("--cache_dir", default="", type=str, help="Where do you want to store the pre-trained models downloaded from s3",)
     parser.add_argument("--output_dir", default=None, type=str, required=True, help="The output directory where the model predictions and checkpoints will be written.",)
 
-    parser.add_argument('--logging_steps', type=int, default=20, help="Log every X updates steps.")
-    parser.add_argument('--self_train_logging_steps', type=int, default=20, help="Log every X updates steps.")
     parser.add_argument('--save_steps', type=int, default=200, help="Save checkpoint every X updates steps.")
     parser.add_argument("--model_type", default="bert-base-uncased", type=str)
     parser.add_argument("--auto_load", default=1, type=int, help="Auto loading the model or not")

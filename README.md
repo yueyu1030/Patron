@@ -82,7 +82,11 @@ See `prompt_learning` folder for detailed instructions.
 
 ## Running on a New Dataset
 
-See [this link](https://github.com/thunlp/OpenPrompt/blob/ca27491101df0108a8dd753e5b1e79bf591f65d3/docs/source/notes/examples.rst#introduction-with-an-example) as the pipeline for generating the prompt-based predictions. 
+See [this link](https://github.com/thunlp/OpenPrompt/blob/ca27491101df0108a8dd753e5b1e79bf591f65d3/docs/source/notes/examples.rst#introduction-with-an-example) as the pipeline for generating the prompt-based predictions. Note that you need to customize your prompt verbalizers and templates.
+
+To generate the document embeddings, you can follow the above commands by using SimCSE. 
+
+Once you generate the index for the selected data, then you can use the pipelines in `Running Fine-tuning Experiments` and `Running Prompt-based Learning Experiments` for the few-shot fine-tuning and prompt-based learning experiments. 
 
 ## Citation
 Please kindly cite the following paper if you find this repo helpful for your research. Thanks in advance!

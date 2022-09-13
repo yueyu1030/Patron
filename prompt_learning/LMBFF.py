@@ -38,7 +38,6 @@ def set_seed(args):
 
 parser.add_argument("--lr", type=float, default=1e-4)
 
-parser.add_argument("--seed", default=0, type=int, help="which seed to use")
 parser.add_argument("--train_seed", default=0, type=int, help="which seed to use")
 parser.add_argument("--task", default="agnews", type=str, help="The name of the task to train")
 parser.add_argument("--data_dir", default="../datasets", type=str,
@@ -80,36 +79,6 @@ args.model_name_or_path = args.model_type
 set_seed(args)
 
 dataset = {}
-dataset['train'] = [ # For simplicity, there's only two examples
-    # text_a is the input text of the data, some other datasets may have multiple input sentences in one example.
-    InputExample(
-        guid = 0,
-        text_a = "Albert Einstein was one of the greatest intellects of his time.",
-        label = 1,
-    ),
-    InputExample(
-        guid = 1,
-        text_a = "The film was badly made.",
-        label = 0,
-    ),
-]
-dataset['validation'] = [ # For simplicity, there's only two examples
-    # text_a is the input text of the data, some other datasets may have multiple input sentences in one example.
-    InputExample(
-        guid = 0,
-        text_a = "Fu Xin was one of the greatest intellects of his time.",
-        label = 1,
-    ),
-]
-dataset['test'] = [ # For simplicity, there's only two examples
-    # text_a is the input text of the data, some other datasets may have multiple input sentences in one example.
-    InputExample(
-        guid = 0,
-        text_a = "Qu Hui was one of the good intellects of his time... ",
-        label = 1,
-    ),
-]
-
 unlabeled =  load_datasets(args, mode = 'train', template_id = 0)
 dev =  load_datasets(args, mode = 'dev', template_id = 0)
 test = load_datasets(args, mode = 'test', template_id = 0)
@@ -117,7 +86,6 @@ with open(f"../datasets/{args.task}-0-0/train_idx_roberta-base_{args.al_method}_
     train_id = json.load(f)
     print("Number of labeled data: ", len(train_id))
 
-# train_id = args.
 
 train = index_select(train_id, unlabeled)
 print(len(train), len(dev), len(test))
@@ -254,16 +222,12 @@ if cuda:
     model = model.cuda()
 
 score, best_model = fit(args, model, train_dataloader, valid_dataloader, loss_func, optimizer)
-# best_model_ = model.load_state_dict(best_model)
-# print(best_model)
 test_score, test_f1 = evaluate(best_model, test_dataloader)
 print("==================")
 
 print(f"Dataset: {args.task}, Labels: {len(train)}, Seed: {args.train_seed}, Acc: {test_score}, F1: {test_f1}")
 
 result_dict = {'seed': args.train_seed, 'labels': len(train)}
-# self.model.load_state_dict(self.best_model)
-# {'acc': acc_test, 'lr': self.args.learning_rate, 'bsz': self.args.batch_size}
 result_dict['acc'] = test_score
 result_dict['f1'] = test_f1
 

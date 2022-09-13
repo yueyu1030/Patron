@@ -9,7 +9,7 @@ The results on different datasets (using 128 labels as the budget) for fine-tuni
 
 | Method |  IMDB | Yelp-full | AGNews | Yahoo! | DBPedia | TREC | Mean|
 | ------ | ------- | ----- | ----------- | ------- | -------- | --------| ------- | 
-| Full Supervision (Roberta-base)  | 94.1 | 66.4 | 94.0 | 77.6 | 99.3 | 97.2 | 88.1 
+| Full Supervision (RoBERTa-base)  | 94.1 | 66.4 | 94.0 | 77.6 | 99.3 | 97.2 | 88.1 
 | Random Sampling | 86.6 | 47.7 | 84.5 | 60.2 | 95.0 | 85.6 | 76.7 
 | Best Baseline [(Chang et al. 2021)](https://aclanthology.org/2021.acl-short.2/) | 88.5 | 46.4 | 85.6 | 61.3 | 96.5 | 87.7 | 77.6
 | Patron (Ours) | 89.6 | 51.2 | 87.0 | 65.1 | 97.0 | 91.1 | 80.2 
@@ -18,7 +18,7 @@ The results on different datasets (using 128 labels as the budget) for fine-tuni
 For prompt-based learning, we use the same pipeline as the [LM-BFF](https://aclanthology.org/2021.acl-long.295/). The result with 128 labels is shown as follows.
 | Method |  IMDB | Yelp-full | AGNews | Yahoo! | DBPedia | TREC | Mean|
 | ------ | ------- | ----- | ----------- | ------- | -------- | --------| ------- | 
-| Full Supervision (Roberta-base)  | 94.1 | 66.4 | 94.0 | 77.6 | 99.3 | 97.2 | 88.1 
+| Full Supervision (RoBERTa-base)  | 94.1 | 66.4 | 94.0 | 77.6 | 99.3 | 97.2 | 88.1 
 | Random Sampling | 87.7 | 51.3 | 84.9 | 64.7 | 96.0 | 85.0 | 78.2 
 | Best Baseline [(Yuan et al., 2020)](https://aclanthology.org/2020.emnlp-main.637/) | 88.9 | 51.7 | 87.5 | 65.9 | 96.8 | 86.5 | 79.5
 | Patron (Ours) | 89.3 | 55.6 | 87.8 | 67.6 | 97.4 | 88.9 | 81.1 

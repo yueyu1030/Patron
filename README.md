@@ -1,5 +1,5 @@
 # Patron
-This repo contains the code for our paper [Cold-Start Data Selection for Few-shot Language Model Fine-tuning: A Prompt-Based Uncertainty Propagation Approach]() (arXiv preprint).
+This repo contains the code for our paper [Cold-Start Data Selection for Few-shot Language Model Fine-tuning: A Prompt-Based Uncertainty Propagation Approach](https://arxiv.org/abs/2209.06995) (arXiv preprint 2209.06995).
 
 ## Model Framework
 ![Figure](Figure/PATRON.png)
@@ -91,5 +91,14 @@ Once you generate the index for the selected data, then you can use the pipeline
 ## Citation
 Please kindly cite the following paper if you find this repo helpful for your research. Thanks in advance!
 
+```
+@article{yu2022patron,
+  title={Cold-Start Data Selection for Few-shot Language Model Fine-tuning: A Prompt-Based Uncertainty Propagation Approach
+},
+  author={Yue Yu and Rongzhi Zhang and Ran Xu and Jieyu Zhang and Jiaming Shen and Chao Zhang},
+  journal={arXiv preprint arXiv:2209.06995},
+  year={2022}
+}
+```
 ## Acknowledgements 
 The author would like to thank the authors from the repo [SimCSE](https://github.com/princeton-nlp/SimCSE) and [OpenPrompt](https://github.com/thunlp/OpenPrompt) for the well-organized code.

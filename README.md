@@ -101,4 +101,4 @@ Please kindly cite the following paper if you find this repo helpful for your re
 }
 ```
 ## Acknowledgements 
-The author would like to thank the authors from the repo [SimCSE](https://github.com/princeton-nlp/SimCSE) and [OpenPrompt](https://github.com/thunlp/OpenPrompt) for the well-organized code.
+We would like to thank the authors from the repo [SimCSE](https://github.com/princeton-nlp/SimCSE) and [OpenPrompt](https://github.com/thunlp/OpenPrompt) for the well-organized code.

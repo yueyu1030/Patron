@@ -1,5 +1,5 @@
 # Patron
-This repo contains the code for our paper [Cold-Start Data Selection for Few-shot Language Model Fine-tuning: A Prompt-Based Uncertainty Propagation Approach](https://arxiv.org/abs/2209.06995) (arXiv preprint 2209.06995).
+This repo contains the code for our ACL 2023 paper [Cold-Start Data Selection for Few-shot Language Model Fine-tuning: A Prompt-Based Uncertainty Propagation Approach](https://arxiv.org/abs/2209.06995).
 
 ## Model Framework
 ![Figure](Figure/PATRON.png)

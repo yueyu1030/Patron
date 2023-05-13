@@ -28,7 +28,6 @@ For prompt-based learning, we use the same pipeline as the [LM-BFF](https://acla
 python 3.8
 transformers==4.2.0
 pytorch==1.8.0
-tqdm
 scikit-learn
 faiss-cpu==1.6.4
 sentencepiece==0.1.96

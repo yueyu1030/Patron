@@ -94,7 +94,6 @@ def load_data(dataset = 'IMDB', embedding_model = 'roberta-base', template_id = 
     # train_label = np.load(path + "pred_labels.npy") # actually unused
 
     # assert len(test_label) == test_emb.shape[0]
-    assert train_emb.shape[0] == train_label.shape[0]
     assert train_emb.shape[0] == train_prompt_pred.shape[0]
     return train_emb, train_prompt_pred
 

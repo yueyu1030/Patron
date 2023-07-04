@@ -91,12 +91,12 @@ def load_data(dataset = 'IMDB', embedding_model = 'roberta-base', template_id = 
     with open(path + f'embedding_{embedding_model}_roberta.pkl', 'rb') as f:
         train_emb = pickle.load(f)    
     train_prompt_pred = np.load(path + f"pred_unlabeled_roberta-base_temp{template_id}.npy")
-    train_label = np.load(path + "pred_labels.npy")
+    # train_label = np.load(path + "pred_labels.npy") # actually unused
 
     # assert len(test_label) == test_emb.shape[0]
     assert train_emb.shape[0] == train_label.shape[0]
     assert train_emb.shape[0] == train_prompt_pred.shape[0]
-    return train_emb, train_prompt_pred, train_label
+    return train_emb, train_prompt_pred
 
 
 ''' loading training data '''
@@ -202,7 +202,7 @@ if __name__ == '__main__':
     n_sample = args.n_sample
 
     print(f"Using, Prop: {prop}")
-    train_emb, train_prompt_pred, train_label = load_data(args.dataset, args.model, template_id = args.template)
+    train_emb, train_prompt_pred = load_data(args.dataset, args.model, template_id = args.template)
     mean_pred = np.mean(train_prompt_pred, axis =  0)
 
     train_prompt_pred = train_prompt_pred / np.sum(train_prompt_pred, axis=-1, keepdims= True)

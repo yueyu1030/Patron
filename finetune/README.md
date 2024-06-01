@@ -13,11 +13,11 @@ faiss-cpu==1.6.4
 ## Dataset Preprocessing
 Suppose we have the selected id from the training data from `patron_sample.py`. An example of the file name should be `train_idx_roberta-base_round2_rho0.01_gamma0.5_beta0.2_mu0.5_sample32.json`. 
 
-Then, we need to sample the unlabeled data into the *training* set and _validation_ set. 
+Then, we need to separate the unlabeled data into the *training* set and _validation_ set. 
 The number in the above file is the *index* of the selected data, which will be used as the training set. 
 The validation set is randomly selected from the unlabeled data.
 
-The corresponding train/dev dataset are `train_[budget].json` and `valid.json`.
+The corresponding train/dev dataset is `train_[budget].json` and `valid.json`. The remaining unlabeled data is left as `unlabeled.json`.
 
 ## Training Commands
 Run the following commands `commands/run.sh` for fine-tuning the PLM with the selected data.
